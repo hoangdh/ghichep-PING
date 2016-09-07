@@ -34,6 +34,11 @@ Ngày nay, tiện ích này được cài đặt sẵn trên các hệ điều h
 - **Request time out**: thực hiện gửi gói thành công nhưng không nhận được gói phản hồi. (Lỗi ở Phía xa)
 - **Destination host unreachable**: đích đến không tồn tại hoặc đang cô lập. (Lỗi ở phía mình)
 - **Reply from 203.162.4.190 byte=32 time <1ms TTL 124**: Gửi gói đến địa chỉ IP: 203.162.4.190 với độ dài gói 32 byte, thời gian phản hồi dưới 1 mili giây, TTL (time to live - vòng đời gói) 124. Phản ánh trạng thái gói gửi và tín hiệu phản hồi. Gói tin khi đi qua một ROUTER thì TTL giảm đi 1 đơn vị và đi qua không quá 30 host. Host sử dụng Windows (Mặc định 128) TTL > 98, Dùng Linux (Mặc định 64) > 34.
+- **Unknown host / Ping Request Could Not Find Host**: Điều này cho chúng ta biết hostname bạn ping đến không có trên bất cứ Hệ thống phân giải tên miền nào hay lý do đơn giản là bạn viết sai chính tả
+
+```
+ping meidtech.vn
+```
 
 <a name="3"></a>
 ### 3. Một số tham số thường dùng
