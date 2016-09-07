@@ -63,7 +63,7 @@ ping -n 8 meditech.vn
 
 Thông tin phía dưới cho ta thấy được, tổng số gói tin đã gửi. Bao nhiêu gói tin gửi thành công, và bao nhiêu gói tin gửi lỗi.
 
-Với LINUX, chúng ta thay -n bằng -c.
+Với LINUX, chúng ta thay `-n` bằng `-c`.
 
 ```
 ping -c 8 meditech.vn
@@ -90,13 +90,14 @@ ping -i 2 meditech.vn
 
 <img src="http://image.prntscr.com/image/addee54a217947f494ac4712166cf0a9.png" />
 
-2 giây sẽ gửi gói tin tiếp theo đến host.
+Với ví dụ trên, PING sẽ gửi gói tin tiếp theo đến host sau khoảng thời gian là 2 giây.
 
 <img src="http://image.prntscr.com/image/43698ea0d91f4969b87fd9c9449cd0f0.png" />
 
 Ví dụ cụ thể hơn, tôi sẽ ping 2 lần. 
 - Lần thứ nhất có tham số `-i`, nhìn vào `time` chúng ta thấy nó mất 2 giây để gửi 2 gói tin. 
 - Lần thứ hai không có tham số `-i`, chúng ta thấy thời gian gửi đi 2 gói tin chỉ mất 1 giây, bằng thông số thời gian mặc định của lệnh.
+
 <a name="3.5"></a>
 #### 3.5 Gửi gói tin liên tiếp đến host
 
