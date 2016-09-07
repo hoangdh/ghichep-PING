@@ -1,6 +1,5 @@
 # Ghi chép câu lệnh PING
 
-
 ###Mục lục:
 [1. Giới thiệu về PING ](#1)
 
@@ -32,9 +31,9 @@ Ngày nay, tiện ích này được cài đặt sẵn trên các hệ điều h
 <a name="2"></a>
 ### 2. Một số thông điệp trả về khi PING:
 
-- Request time out: thực hiện gửi gói thành công nhưng không nhận được gói phản hồi. (Lỗi ở Phía xa)
-- Destination host unreachable: đích đến không tồn tại hoặc đang cô lập. (Lỗi ở phía mình)
-- Reply from 203.162.4.190 byte=32 time <1ms TTL 124: Gửi gói đến địa chỉ IP: 203.162.4.190 với độ dài gói 32 byte, thời gian phản hồi dưới 1 mili giây, TTL (time to live - vòng đời gói) 124. Phản ánh trạng thái gói gửi và tín hiệu phản hồi. TTL mỗi khi đi qua một ROUTER thì sẽ giảm đi 1 đơn vị và đi qua không quá 30 host. Host sử dụng Windows (Mặc định 128) TTL > 98, Dùng Linux (Mặc định 64) > 34.
+- **Request time out**: thực hiện gửi gói thành công nhưng không nhận được gói phản hồi. (Lỗi ở Phía xa)
+- **Destination host unreachable**: đích đến không tồn tại hoặc đang cô lập. (Lỗi ở phía mình)
+- **Reply from 203.162.4.190 byte=32 time <1ms TTL 124**: Gửi gói đến địa chỉ IP: 203.162.4.190 với độ dài gói 32 byte, thời gian phản hồi dưới 1 mili giây, TTL (time to live - vòng đời gói) 124. Phản ánh trạng thái gói gửi và tín hiệu phản hồi. Gói tin khi đi qua một ROUTER thì TTL giảm đi 1 đơn vị và đi qua không quá 30 host. Host sử dụng Windows (Mặc định 128) TTL > 98, Dùng Linux (Mặc định 64) > 34.
 
 <a name="3"></a>
 ### 3. Một số tham số thường dùng
@@ -47,7 +46,7 @@ Thực hiện trên Terminal của CentOS 6
 ping meditech.vn
 ```
 
-<img src="http://image.prntscr.com/image/9beec10f16a84321947f2476812f4869.png" />
+<img src="http://image.prntscr.com/image/bef7739da03446d084fa29efdfe0bc9f.png" />
 
 Trên Windows, nếu không có tham số nào đi cùng thì mặc định 4 gói tin được gửi đến host với size là 32 byte.
 
@@ -57,13 +56,13 @@ Khác với Windows, ở LINUX, nếu không có tham số đi cùng thì mặc 
 #### 3.2 PING với số gói
 
 ```
-ping -n 8 meditech.vn
+ping -c 8 meditech.vn
 ```
-<img src="http://image.prntscr.com/image/eff6a5bd5e5a48d6a75597dde4b63782.png" />
+<img src="http://image.prntscr.com/image/0cacc8b12f1c42309078ee012c62b8bd.png" />
 
 Thông tin phía dưới cho ta thấy được, tổng số gói tin đã gửi. Bao nhiêu gói tin gửi thành công, và bao nhiêu gói tin gửi lỗi.
 
-Với LINUX, chúng ta thay `-n` bằng `-c`.
+Với Windows, chúng ta thay `-c` bằng `-n`.
 
 ```
 ping -c 8 meditech.vn
@@ -75,41 +74,61 @@ ping -c 8 meditech.vn
 #### 3.3 PING với tùy chọn kích cỡ gói tin
 
 ```
-ping -l 1024 meditech.vn
+ping -s 100 meditech.vn
 ```
 
-<img src="http://image.prntscr.com/image/3ea6013218b44b629f3067238dd387f9.png" />
+<img src="http://image.prntscr.com/image/635b7e77273743c2bc7da5d13f968d25.png" />
 
-Giá trị cao nhất của tham số `-l` là 65500, điều này có nghĩa gói tin ping lớn nhất chỉ 65500 bytes (~65,5KB)
+Giá trị cao nhất của tham số `-s` là 65507, điều này có nghĩa gói tin ping lớn nhất chỉ 65507 bytes (~65,5KB)
 <a name="3.4"></a>
 #### 3.4 Tùy chọn thời gian gửi gói tin tiếp theo
 
+Mặc định, PING sẽ chờ khoảng thời gian là 1 giây để gửi gói tin tiếp theo đến host. Nhưng bạn có thể tăng hoặc giảm thời gian này bằng tham số `-i`.
+
+Thêm tham số `-i 2` như ví dụ dưới để PING gửi request tiếp theo tới host sau 2 giây.
 ```
 ping -i 2 meditech.vn
 ```
 
-<img src="http://image.prntscr.com/image/addee54a217947f494ac4712166cf0a9.png" />
+<img src="http://image.prntscr.com/image/0590355b5a6b4512a26bb6eddb04d95d.png" />
 
 Với ví dụ trên, PING sẽ gửi gói tin tiếp theo đến host sau khoảng thời gian là 2 giây.
 
+Để nhìn rõ hơn, tôi sẽ kết hợp với tham số `-c`. Ý nghĩa của của nó là sẽ gửi đi 2 gói tin với thời gian chờ gửi gói tin tiếp theo là 2 giây ở lần thứ nhất. Lần thứ 2, tôi sẽ ping 2 gói tin nhưng **KHÔNG** kèm theo tham số `-i`.
+
+##### Lần 1
+
+```
+ping -i 2 -c 2 meditech.vn
+```
+
+##### Lần 2
+
+```
+ping -c 2 meditech.vn
+```
+
 <img src="http://image.prntscr.com/image/43698ea0d91f4969b87fd9c9449cd0f0.png" />
 
-Ví dụ cụ thể hơn, tôi sẽ ping 2 lần. 
+
 - Lần thứ nhất có tham số `-i`, nhìn vào `time` chúng ta thấy nó mất 2 giây để gửi 2 gói tin. 
-- Lần thứ hai không có tham số `-i`, chúng ta thấy thời gian gửi đi 2 gói tin chỉ mất 1 giây, bằng thông số thời gian mặc định của lệnh.
+- Lần thứ hai **KHÔNG** có tham số `-i`, chúng ta thấy thời gian gửi đi 2 gói tin chỉ mất 1 giây, bằng thông số thời gian mặc định của lệnh.
 
 <a name="3.5"></a>
 #### 3.5 Gửi gói tin liên tiếp đến host
+
+Đây là cách gửi gói tin liên tiếp đến một host nào đó, thường dùng để kiểm tra hiệu năng hoạt động của mạng.
 
 ```
 ping -f meditech.vn
 ```
 
-Với tham số `-f`, ping sẽ gửi liên tiếp các gói tin đến host cho đến khi bạn bấm Ctrl + C.
+<img src="http://image.prntscr.com/image/3f29f70a542142c09ad9bac83ed82ad9.png" />
 
-Lấy ví dụ cụ thể, tôi sẽ PING 10 gói tin liên tiếp với tham số `-f` với thời gian 0.13 giây (như hình).
+Lấy ví dụ cụ thể, tôi sẽ PING 10 gói tin liên tiếp với tham số `-f` với thời gian 0.13 giây (như hình). Mặc định khi gửi các bản tin đi, PING sẽ chờ khoảng thời gian là 1 giây để gửi đi bản tin tiếp theo.
 
 <img src="http://image.prntscr.com/image/8aa1d281becc4a13988d3f96e3f9fdad.png" />
+
 <a name="3.6"></a>
 #### 3.6 Phân tích kết quả với PING
 
@@ -121,6 +140,7 @@ ping -c 5 -q meditech.vn
 
 Với `-q`, chúng ta chỉ thấy kết quả phân tích mà không thấy gói tin cụ thể được gửi.
 <a name="3.7"></a>
+
 #### 3.7 PING trong khoảng thời gian
 
 ```
@@ -129,7 +149,7 @@ ping -w 10 meditech.vn
 
 <img src="http://image.prntscr.com/image/3288f033403a4803abcbbbc065a53367.png" />
 
-Câu lệnh trên sẽ ping đến host trong khoảng thời gian 10s.
+Với tham số `-w`, câu lệnh trên sẽ ping đến host trong khoảng thời gian 10s.
 
 <a name="4"></a>
 ### 4. Kết luận
