@@ -99,24 +99,11 @@ ping -i 2 meditech.vn
 
 Với ví dụ trên, PING sẽ gửi gói tin tiếp theo đến host sau khoảng thời gian là 2 giây.
 
-Để nhìn rõ hơn, tôi sẽ kết hợp với tham số `-c`. Ý nghĩa của của nó là sẽ gửi đi 2 gói tin với thời gian chờ gửi gói tin tiếp theo là 2 giây ở lần thứ nhất. Lần thứ 2, tôi sẽ ping 2 gói tin nhưng **KHÔNG** kèm theo tham số `-i`.
+Để nhìn rõ hơn, tôi sẽ kết hợp với tham số `-c`. Ý nghĩa của của nó là sẽ gửi đi 3 gói tin với thời gian chờ gửi gói tin tiếp theo là 2 giây.
 
-##### Lần 1
+<img src="http://image.prntscr.com/image/c4666d3d690d412da337c52106178c57.png" />
 
-```
-ping -i 2 -c 2 meditech.vn
-```
-
-##### Lần 2
-
-```
-ping -c 2 meditech.vn
-```
-
-<img src="http://image.prntscr.com/image/21702d25dfdf46ad85e677d63b974d2a.png" />
-
-- Lần thứ nhất có tham số `-i`, nhìn vào `time` chúng ta thấy nó mất 2 giây để gửi 2 gói tin. 
-- Lần thứ hai **KHÔNG** có tham số `-i`, chúng ta thấy thời gian gửi đi 2 gói tin chỉ mất 1 giây, bằng thông số thời gian mặc định của lệnh.
+Gói tin đầu tiên sẽ được gửi từ giây 0. Cách 2s, gói tin tiếp theo được gửi đi. Như vậy trong trường hợp này, PING mất 4s để gửi 3 gói tin đi. 
 
 <a name="3.5"></a>
 #### 3.5. Gửi gói tin liên tiếp đến host
