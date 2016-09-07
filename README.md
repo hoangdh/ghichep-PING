@@ -40,7 +40,7 @@ Ngày nay, tiện ích này được cài đặt sẵn trên các hệ điều h
 
 Thực hiện trên Terminal của CentOS 6
 <a name="3.1"></a>
-#### 3.1 PING thông thường tới 1 host
+#### 3.1. PING thông thường tới 1 host
 
 ```
 ping meditech.vn
@@ -53,7 +53,7 @@ Trên Windows, nếu không có tham số nào đi cùng thì mặc định 4 g�
 Khác với Windows, ở LINUX, nếu không có tham số đi cùng thì mặc định số gói tin sẽ không giới hạn với size là 64 byte.
 Để ngừng việc ping, chúng ta thao tác [Ctrl] + [C]. Ở Windows, nếu muốn PING không giới hạn thêm tham số `-t`.
 <a name="3.2"></a>
-#### 3.2 PING với số gói
+#### 3.2. PING với số gói
 
 ```
 ping -c 8 meditech.vn
@@ -71,7 +71,7 @@ ping -c 8 meditech.vn
 <img src="http://image.prntscr.com/image/4b7cc2907aae4ef5a2ad559a5709d1ca.png" />
 
 <a name="3.3"></a>
-#### 3.3 PING với tùy chọn kích cỡ gói tin
+#### 3.3. PING với tùy chọn kích cỡ gói tin
 
 ```
 ping -s 100 meditech.vn
@@ -110,12 +110,11 @@ ping -c 2 meditech.vn
 
 <img src="http://image.prntscr.com/image/43698ea0d91f4969b87fd9c9449cd0f0.png" />
 
-
 - Lần thứ nhất có tham số `-i`, nhìn vào `time` chúng ta thấy nó mất 2 giây để gửi 2 gói tin. 
 - Lần thứ hai **KHÔNG** có tham số `-i`, chúng ta thấy thời gian gửi đi 2 gói tin chỉ mất 1 giây, bằng thông số thời gian mặc định của lệnh.
 
 <a name="3.5"></a>
-#### 3.5 Gửi gói tin liên tiếp đến host
+#### 3.5. Gửi gói tin liên tiếp đến host
 
 Đây là cách gửi gói tin liên tiếp đến một host nào đó, thường dùng để kiểm tra hiệu năng hoạt động của mạng.
 
@@ -130,7 +129,7 @@ Lấy ví dụ cụ thể, tôi sẽ PING 10 gói tin liên tiếp với tham s�
 <img src="http://image.prntscr.com/image/8aa1d281becc4a13988d3f96e3f9fdad.png" />
 
 <a name="3.6"></a>
-#### 3.6 Phân tích kết quả với PING
+#### 3.6. Phân tích kết quả với PING
 
 ```
 ping -c 5 -q meditech.vn
@@ -141,7 +140,7 @@ ping -c 5 -q meditech.vn
 Với `-q`, chúng ta chỉ thấy kết quả phân tích mà không thấy gói tin cụ thể được gửi.
 <a name="3.7"></a>
 
-#### 3.7 PING trong khoảng thời gian
+#### 3.7. PING trong khoảng thời gian
 
 ```
 ping -w 10 meditech.vn
