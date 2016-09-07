@@ -113,7 +113,7 @@ ping -i 2 -c 2 meditech.vn
 ping -c 2 meditech.vn
 ```
 
-<img src="http://image.prntscr.com/image/43698ea0d91f4969b87fd9c9449cd0f0.png" />
+<img src="http://image.prntscr.com/image/21702d25dfdf46ad85e677d63b974d2a.png" />
 
 - Lần thứ nhất có tham số `-i`, nhìn vào `time` chúng ta thấy nó mất 2 giây để gửi 2 gói tin. 
 - Lần thứ hai **KHÔNG** có tham số `-i`, chúng ta thấy thời gian gửi đi 2 gói tin chỉ mất 1 giây, bằng thông số thời gian mặc định của lệnh.
