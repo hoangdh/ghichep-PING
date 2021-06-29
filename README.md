@@ -1,6 +1,6 @@
 # Ghi chép câu lệnh PING
 
-###Mục lục:
+### Mục lục:
 [1. Giới thiệu về PING ](#1)
 
 [2. Một số thông điệp trả về khi PING ](#2)
@@ -20,13 +20,13 @@
 <a name="1"></a>
 ### 1. Giới thiệu về PING
 
-`PING` (viết tắt của Packet InterNet Groper) là một tiện ích để kiểm tra hoặc xác định có một địa chỉ IP hay một host/server đang hoạt động hay không. Công cụ này thường dùng để kiểm tra và chuẩn đoán lỗi với các vấn đề trong mạng máy tính. Cách hoạt động của nó vô cùng đơn giản là gửi đi một bản tin đến một địa chỉ, host/server nào đó và chờ bản tin phản hồi trả về.
+`PING` (viết tắt của Packet InterNet Groper) là một tiện ích để kiểm tra hoặc xác định có một địa chỉ IP hay một host/server đang hoạt động hay không. Công cụ này thường dùng để kiểm tra và chẩn đoán lỗi với các vấn đề trong mạng máy tính. Cách hoạt động của nó vô cùng đơn giản là gửi đi một bản tin đến một địa chỉ, host/server nào đó và chờ bản tin phản hồi trả về.
 
-PING là một phương pháp chính để troubleshoot cho bất kỳ các kết nối mạng nào. Nó gửi đi các thông điệp chứa thông tin PING và nhận về các phản hồi từ các host/server. Nó cho ta biết thời gian gói tin được trả về từ các host/server.
+PING là một phương pháp chính để tìm lỗi (troubleshoot) cho bất kỳ các kết nối mạng nào. Nó gửi đi các thông điệp chứa thông tin PING và nhận về các phản hồi từ các host/server. Nó cho ta biết thời gian gói tin được trả về từ các host/server.
 
 Ngày nay, tiện ích này được cài đặt sẵn trên các hệ điều hành máy tính. Trên Windows, bạn có thể dùng Command Prompt. Trên một số hệ điều hành khác như LINUX, MAC OS là Terminal.
 
-**Chú ý**: Một số host hoặc server vì lý do bảo mật mà có thể chặn các gói tin PING.
+**Chú ý**: Một số host hoặc server vì lý do bảo mật mà có thể chặn các gói tin ICMP - PING.
 
 <a name="2"></a>
 ### 2. Một số thông điệp trả về khi PING:
